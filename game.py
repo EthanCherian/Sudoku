@@ -5,7 +5,10 @@ grid = Grid()
 while True:
     print(grid)
 
-    idxInput = input("Where would you like to enter a digit? (e.g. 'A3', 'D9', 'I1') ")
+    idxInput = input("Where would you like to enter a digit? (e.g. 'A3', 'D9', 'I1', or -1 to exit) ")
+    if idxInput == "-1":
+        print("Exiting...")
+        break
     try:
         idx = convertUserInput(idxInput)
     except Exception as e:
@@ -20,7 +23,10 @@ while True:
         print(f"An error occurred: {e}")
         continue
     if digit == -1:
-        print("Cancelling...")
+        print("Cancelling...")          # TODO: this don't work :(
         continue
 
-    grid.placeDigit(idx, digit)
+    if grid.isValidMove(idx, digit):
+        grid.placeDigit(idx, digit)
+    else:
+        print("\t**** Invalid move ****")

@@ -1,5 +1,5 @@
 from typing import List
-from constants import ROWS, COLS, BOXES
+from helpers import checkBox, checkCol, checkRow
 
 class Grid:
     grid: List[int] = None
@@ -25,3 +25,8 @@ class Grid:
     def placeDigit(self, idx: int, digit: int):
         # places digit in index, regardless of current contents there
         self.grid[idx] = digit
+    
+    def isValidMove(self, idx: int, digit: int):
+        # checks whether placing `digit` into `idx` is allowed
+        return checkRow(self.grid, idx, digit) and checkCol(self.grid, idx, digit) and checkBox(self.grid, idx, digit)
+

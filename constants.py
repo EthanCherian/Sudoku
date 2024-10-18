@@ -1,3 +1,4 @@
+# indices associated with each row
 ROWS = [
     list(range(0, 9)),
     list(range(9, 18)),
@@ -10,6 +11,7 @@ ROWS = [
     list(range(72, 81))
 ]
 
+# indices associated with each column
 COLS = [
     list(range(0, 81, 9)),
     list(range(1, 81, 9)),
@@ -22,6 +24,7 @@ COLS = [
     list(range(8, 81, 9))
 ]
 
+# indices associated with each box (3x3 sub-grid)
 BOXES = [
     [0, 1, 2,  9, 10, 11, 18, 19, 20],
     [3, 4, 5, 12, 13, 14, 21, 22, 23],
