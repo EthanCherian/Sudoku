@@ -1,8 +1,10 @@
 from grid import Grid
 from helpers import convertUserInput
 
-grid = Grid()
-while True:
+rem = int(input("How many digits should be removed? (1-81) "))
+grid = Grid(md=rem)
+
+while not grid.isComplete():
     print(grid)
 
     idxInput = input("Where would you like to enter a digit? (e.g. 'A3', 'D9', 'I1', or -1 to exit) ")
@@ -23,10 +25,12 @@ while True:
         print(f"An error occurred: {e}")
         continue
     if digit == -1:
-        print("Cancelling...")          # TODO: this don't work :(
+        print("Cancelling...")
         continue
 
     if grid.isValidMove(idx, digit):
         grid.placeDigit(idx, digit)
     else:
         print("\t**** Invalid move ****")
+
+print("You win!")

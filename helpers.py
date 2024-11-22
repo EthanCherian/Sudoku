@@ -1,4 +1,6 @@
 from typing import List
+from random import random
+from math import floor
 from constants import ROWS, COLS, BOXES
 
 def convertUserInput(input: str) -> int:
@@ -54,3 +56,11 @@ def checkBox(grid: List[int], idx: int, digit: int):
     boxCross = BOXES[boxIdx]                    # indices to check in grid
     gridBox = [grid[b] for b in boxCross]       # actual box values
     return digit not in gridBox
+
+def generateDigit():
+    # generate random number between 1-9 (inclusive)
+    return floor(random() * 9 + 1)
+
+def generateIndex():
+    # generate random grid index between 0-80 (inclusive)
+    return floor(random() * 81)
