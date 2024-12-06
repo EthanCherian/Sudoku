@@ -33,4 +33,6 @@ while not grid.isComplete():
     else:
         print("\t**** Invalid move ****")
 
-print("You win!")
+if grid.isComplete():
+    print(grid)
+    print("\t** You win! **")
